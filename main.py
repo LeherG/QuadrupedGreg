@@ -11,7 +11,7 @@ print(joystick_count)
 if joystick_count > 0:
 	joystick=pygame.joystick.Joystick(0)
 
-running = False
+running = True
 
 with open("test.txt", "w") as file:
 	file.write("Hello world!")
