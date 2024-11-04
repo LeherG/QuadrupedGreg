@@ -45,8 +45,31 @@ buttons = {
 	"Start":7,
 	"Metal Ball":8
 }
+
 axisLabels = {
-	
+	"TLLR": 0, # top left joystick, left/right
+	"TLFB": 1, # top left joystick, front/back
+	"BRLR": 2, # bottom right joystick, left/right
+	"BRFB": 3, # bottom right joystick, front/back
+}
+
+axisNumbers = {
+	0: {
+		-1: "placeholder (command for what to do when TLLR is pushed left)",
+		1: "placeholder (command for what to do when TLLR is pushed right)"
+	},
+	1: {
+		-1: "placeholder (command for what to do when TLFB is pushed forward - yes, counterintuitive)",
+		1: "placeholder (command for what to do when TLLR is pushed back)"
+	},
+	2: {
+		-1: "placeholder (command for what to do when BRLR is pushed left)",
+		1: "placeholder (command for what to do when BRLR is pushed right)"
+	},
+	3: {
+		-1: "walk", # "placeholder (command for what to do when BRFB is pushed forward - yes, counterintuitive)",
+		1: "placeholder (command for what to do when BRLR is pushed back)"
+	}
 }
 
 pygame.init()
@@ -75,8 +98,15 @@ while running:
 			elif button == buttons["B"]:
 				setPins(commands["sit"])
 
-		if event.type == pygame.JOYAXISMOTION:
-			print(f"Axis {event.axis} moved to {event.value}")
-		if event.type == pygame.JOYHATMOTION:
+		if event.type == pygame.JOYAXISMOTION: # joystick
+			# print(f"Axis {event.axis} moved to {event.value}")
+			axis = event.axis
+			value = event.value
+
+			#if axis == axisLabels["TLLR"]:
+			#	setPins(commands["TLLR"]) ######### make this line and the above in one line
+
+
+		if event.type == pygame.JOYHATMOTION: # the four button thing
 			print(f"Axis {event.value}")
 #		print(event)
