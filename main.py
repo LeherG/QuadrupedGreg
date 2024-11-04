@@ -5,15 +5,35 @@ GPIO.setmode(GPIO.BOARD)
 
 # GPIO.output(pinNum, GPIO.HIGH)
 
-##setting the pins
-pin1 = 1 #placeholder, represents leftmost digit
-pin2 = 2
-pin3 = 3
-pin4 = 4 #rightmost digit
+## setting the pins
+pin1 = 2 #represents leftmost digit
+pin2 = 3
+pin3 = 4
+pin4 = 5 #rightmost digit
 
+signalPins = [0, 1]
+
+## signal pins
+for pin in signalPins:
+	GPIO.setup(pin, GPIO.OUT)
+
+def setSignals(setting):
+	for i in signalPins:
+		GPIO.output(i, setting)
+
+## command pins
 commandPins = [pin1, pin2, pin3, pin4]
 commandPinStatus = [0] * len(commandPins)
 
+for pin in commandPins:
+	GPIO.setup(pin, GPIO.OUT)
+
+def setPins(commandNum):
+	binList = list(map(int, list(bin(commandNum)[2:])))
+	for i in range(len(commandPins)):
+		GPIO.output(commandPins[i], binList[i])
+
+ ## commands
 commands = {
 	"sit": 0,
 	"stand": 1,
@@ -24,16 +44,7 @@ commands = {
 	"dance2":6
 }
 
-for pin in commandPins:
-	GPIO.setup(pin, GPIO.OUT)
-
-##conv to binary
-def setPins(commandNum):
-	binList = list(map(int, list(bin(commandNum)[2:])))
-	for i in range(len(commandPins)):
-		GPIO.output(commandPins[i], binList[i])
-
-##mapping
+## mapping
 buttons = {
 	"A":0,
 	"B":1,
@@ -59,8 +70,8 @@ axisNumbers = {
 		1: "placeholder (command for what to do when TLLR is pushed right)"
 	},
 	1: {
-		-1: "placeholder (command for what to do when TLFB is pushed forward - yes, counterintuitive)",
-		1: "placeholder (command for what to do when TLLR is pushed back)"
+		-1: "stand", # "placeholder (command for what to do when TLFB is pushed forward - yes, counterintuitive)",
+		1: "sit" # "placeholder (command for what to do when TLLR is pushed back)"
 	},
 	2: {
 		-1: "placeholder (command for what to do when BRLR is pushed left)",
@@ -84,12 +95,12 @@ if joystick_count > 0:
 
 running = True
 
-with open("test.txt", "w") as file:
-	file.write("Hello world!")
+# with open("test.txt", "w") as file:
+# 	file.write("Hello world!")
 
 while running:
 	for event in pygame.event.get():
-
+		setSignals(1) # tells arduino to start receiving
 		if event.type == pygame.JOYBUTTONDOWN:
 			# print(f"Button {event.button} pressed")
 			button = event.button
@@ -103,10 +114,12 @@ while running:
 			axis = event.axis
 			value = event.value
 
-			#if axis == axisLabels["TLLR"]:
-			#	setPins(commands["TLLR"]) ######### make this line and the above in one line
+			if value == 1 or value == -1:
+				setPins(commands[axisNumbers[axis][value]])
 
 
 		if event.type == pygame.JOYHATMOTION: # the four button thing
-			print(f"Axis {event.value}")
+			# print(f"Axis {event.value}")
+			value = event.value
 #		print(event)
+		setSignals(0) # tells arduino to stop receiving new commands
