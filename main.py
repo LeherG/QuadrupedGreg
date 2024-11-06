@@ -11,7 +11,7 @@ pin2 = 5
 pin3 = 6
 pin4 = 13 #rightmost digit
 
-signalPins = [0, 1]
+signalPins = [25, 19]
 
 ## signal pins
 for pin in signalPins:
