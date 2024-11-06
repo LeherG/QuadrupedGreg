@@ -6,10 +6,10 @@ GPIO.setmode(GPIO.BOARD)
 # GPIO.output(pinNum, GPIO.HIGH)
 
 ## setting the pins
-pin1 = 2 #represents leftmost digit
-pin2 = 3
-pin3 = 4
-pin4 = 5 #rightmost digit
+pin1 = 0 #represents leftmost digit
+pin2 = 5
+pin3 = 6
+pin4 = 13 #rightmost digit
 
 signalPins = [0, 1]
 
