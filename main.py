@@ -61,7 +61,7 @@ axisLabels = {
 	"TLLR": 0, # top left joystick, left/right
 	"TLFB": 1, # top left joystick, front/back
 	"BRLR": 2, # bottom right joystick, left/right
-	"BRFB": 3, # bottom right joystick, front/back
+	"BRFB": 3 # bottom right joystick, front/back
 }
 
 axisNumbers = {
@@ -108,6 +108,10 @@ while running:
 				setPins(commands["stand"])
 			elif button == buttons["B"]:
 				setPins(commands["sit"])
+			elif button == buttons["X"]:
+				setPins(commands["dance"])
+			elif button == buttons["Y"]:
+				setPins(commands["dance2"])
 
 		if event.type == pygame.JOYAXISMOTION: # joystick
 			# print(f"Axis {event.axis} moved to {event.value}")
