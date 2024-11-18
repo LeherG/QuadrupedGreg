@@ -66,20 +66,20 @@ axisLabels = {
 
 axisNumbers = {
 	0: {
-		-1: "placeholder (command for what to do when TLLR is pushed left)",
-		1: "placeholder (command for what to do when TLLR is pushed right)"
+		-1: "sit", # TLLR pushed left
+		1: "stand" # TLLR pushed righ
 	},
 	1: {
-		-1: "stand", # "placeholder (command for what to do when TLFB is pushed forward - yes, counterintuitive)",
-		1: "sit" # "placeholder (command for what to do when TLLR is pushed back)"
+		-1: "stand", # TLFB pushed forward - yes, counterintuitive
+		1: "sit" # TLLR pushed back
 	},
 	2: {
-		-1: "placeholder (command for what to do when BRLR is pushed left)",
-		1: "placeholder (command for what to do when BRLR is pushed right)"
+		-1: "sit", # BRLR pushed left
+		1: "stand" # BRLR pushed right
 	},
 	3: {
-		-1: "walk", # "placeholder (command for what to do when BRFB is pushed forward - yes, counterintuitive)",
-		1: "placeholder (command for what to do when BRLR is pushed back)"
+		-1: "walk", # BRFB pushed forward - yes, counterintuitive
+		1: "stand" # BRLR pushed back
 	}
 }
 
