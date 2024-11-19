@@ -6,10 +6,10 @@ GPIO.setmode(GPIO.BOARD)
 # GPIO.output(pinNum, GPIO.HIGH)
 
 ## setting the pins
-pin4 = 0 #represents leftmost digit
-pin3 = 5
-pin2 = 6
-pin1 = 13 #rightmost digit
+pin1 = 0 #represents most significant
+pin2 = 5
+pin3 = 6
+pin4 = 13 #rightmost least significant
 
 signalPins = [25, 19]
 
@@ -29,6 +29,7 @@ for pin in commandPins:
 	GPIO.setup(pin, GPIO.OUT)
 
 def setPins(commandNum):
+	setSignals(0)
 	binList = list(map(int, list(bin(commandNum)[2:])))
 	for i in range(len(commandPins)):
 		GPIO.output(commandPins[i], binList[i])
