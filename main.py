@@ -1,7 +1,7 @@
 import pygame
 import os
 import RPi.GPIO as GPIO
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM) 
 
 # GPIO.output(pinNum, GPIO.HIGH)
 
