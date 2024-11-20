@@ -31,6 +31,10 @@ for pin in commandPins:
 def setPins(commandNum):
 	setSignals(0)
 	binList = list(map(int, list(bin(commandNum)[2:])))
+
+	while len(binList) < 4:
+		binList.insert(0,0)
+	
 	for i in range(len(commandPins)):
 		GPIO.output(commandPins[i], binList[i])
 
