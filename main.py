@@ -26,7 +26,7 @@ def setSignals(setting):
 
 ## command pins
 commandPins = [pin1, pin2, pin3, pin4]
-commandPinStatus = [0] * len(commandPins)
+# commandPinStatus = [0] * len(commandPins)
 
 for pin in commandPins:
 	GPIO.setup(pin, GPIO.OUT)
@@ -43,7 +43,6 @@ def setPins(commandNum):
 		GPIO.output(commandPins[i], binList[i])
 	print("command num: " + str(commandNum))
 	print("set pins to: " + str(binList))
-	print("status: " + str(commandPinStatus))
 
 setPins(3)
 
