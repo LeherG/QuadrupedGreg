@@ -43,6 +43,7 @@ def setPins(commandNum):
 		GPIO.output(commandPins[i], binList[i])
 	print("command num: " + str(commandNum))
 	print("set pins to: " + str(binList))
+	print("status: " + str(commandPinStatus))
 
 setPins(1)
 
