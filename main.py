@@ -1,3 +1,5 @@
+
+
 import pygame
 import os
 import RPi.GPIO as GPIO
@@ -29,6 +31,7 @@ commandPinStatus = [0] * len(commandPins)
 for pin in commandPins:
 	GPIO.setup(pin, GPIO.OUT)
 
+
 def setPins(commandNum):
 	setSignals(0)
 	binList = list(map(int, list(bin(commandNum)[2:])))
@@ -41,6 +44,9 @@ def setPins(commandNum):
 	print("command num: " + str(commandNum))
 	print("set pins to: " + str(binList))
 
+setPins(1)
+
+'''
  ## commands
 commands = {
 	"sit": 0,
@@ -135,3 +141,4 @@ while running:
 			value = event.value
 #		print(event)
 		setSignals(0) # tells arduino to stop receiving new commands
+'''
