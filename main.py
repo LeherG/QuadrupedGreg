@@ -2,6 +2,7 @@ import pygame
 import os
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM) 
+GPIO.setwarnings(False)
 
 # GPIO.output(pinNum, GPIO.HIGH)
 
@@ -107,7 +108,7 @@ while running:
 	for event in pygame.event.get():
 		setSignals(1) # tells arduino to start receiving
 		if event.type == pygame.JOYBUTTONDOWN:
-			# print(f"Button {event.button} pressed")
+			print(f"Button {event.button} pressed")
 			button = event.button
 			if button == buttons["A"]:
 				setPins(commands["stand"])
@@ -119,7 +120,7 @@ while running:
 				setPins(commands["dance2"])
 
 		if event.type == pygame.JOYAXISMOTION: # joystick
-			# print(f"Axis {event.axis} moved to {event.value}")
+			print(f"Axis {event.axis} moved to {event.value}")
 			axis = event.axis
 			value = event.value
 
@@ -128,7 +129,7 @@ while running:
 
 
 		if event.type == pygame.JOYHATMOTION: # the four button thing
-			# print(f"Axis {event.value}")
+			print(f"Axis {event.value}")
 			value = event.value
 #		print(event)
 		setSignals(0) # tells arduino to stop receiving new commands
