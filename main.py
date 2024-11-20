@@ -45,7 +45,7 @@ def setPins(commandNum):
 	print("set pins to: " + str(binList))
 	print("status: " + str(commandPinStatus))
 
-setPins(1)
+setPins(3)
 
 '''
  ## commands
