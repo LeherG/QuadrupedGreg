@@ -1,5 +1,3 @@
-
-
 import pygame
 import os
 import RPi.GPIO as GPIO
@@ -44,7 +42,7 @@ def setPins(commandNum):
 	print("command num: " + str(commandNum))
 	print("set pins to: " + str(binList))
 
-setPins(3)
+setPins(1)
 
 '''
  ## commands
