@@ -11,7 +11,7 @@ pin2 = 5
 pin3 = 6
 pin4 = 13 #rightmost least significant
 
-signalPins = [25, 19]
+signalPins = [26, 19]
 
 ## signal pins
 for pin in signalPins:
