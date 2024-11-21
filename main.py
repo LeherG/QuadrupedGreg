@@ -113,6 +113,7 @@ setPins(1)
 setPins(2)
 setPins(3)
 setPins(4)
+setPins(0)
 '''
 while running:
 	for event in pygame.event.get():
