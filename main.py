@@ -1,6 +1,7 @@
 import pygame
 import os
 import RPi.GPIO as GPIO
+import time
 GPIO.setmode(GPIO.BCM) 
 GPIO.setwarnings(False)
 
@@ -40,6 +41,7 @@ def setPins(commandNum):
 	print("command num: " + str(commandNum))
 	print("set pins to: " + str(binList))
 	setSignals(0)
+	time.sleep(0.5)
 
  ## commands
 commands = {
