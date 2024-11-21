@@ -24,11 +24,9 @@ def setSignals(setting):
 
 ## command pins
 commandPins = [pin1, pin2, pin3, pin4]
-# commandPinStatus = [0] * len(commandPins)
 
 for pin in commandPins:
 	GPIO.setup(pin, GPIO.OUT)
-
 
 def setPins(commandNum):
 	setSignals(1)
@@ -43,10 +41,6 @@ def setPins(commandNum):
 	print("set pins to: " + str(binList))
 	setSignals(0)
 
-while True:
-	setPins(1)
-
-'''
  ## commands
 commands = {
 	"sit": 0,
@@ -141,4 +135,3 @@ while running:
 			value = event.value
 #		print(event)
 		setSignals(0) # tells arduino to stop receiving new commands
-'''
