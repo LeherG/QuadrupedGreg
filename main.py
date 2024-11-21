@@ -45,7 +45,7 @@ def setPins(commandNum):
 
  ## commands
 commands = {
-	"sit": 0,
+	"sit": 13,
 	"stand": 1,
 	"walk": 2,
 	"walk_back":3,
