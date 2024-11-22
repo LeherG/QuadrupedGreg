@@ -51,7 +51,12 @@ commands = {
 	"walk_back":3,
 	"walk_fast":4,
 	"dance":5,
-	"dance2":6
+	"dance2":6,
+	"turn_l":7,
+	"turn_r":8,
+	"walking_turn_left":9,
+	"sidestep":10,
+	"walkq":11
 }
 
 ## mapping
