@@ -47,7 +47,7 @@ def setPins(commandNum):
 	print("set pins to: " + str(binList))
 	setSignals(0)
 
-	time.sleep(0.5)
+	time.sleep(1)
 
  ## commands
 commands = {
