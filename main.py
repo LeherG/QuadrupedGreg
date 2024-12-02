@@ -119,14 +119,7 @@ running = True
 # with open("test.txt", "w") as file:
 # 	file.write("Hello world!")
 
-setPins(0)
-setPins(1)
-setPins(2)
-setPins(3)
-setPins(4)
-setPins(0)
-setSignals(0)
-'''
+
 while running:
 	for event in pygame.event.get():
 		setSignals(1) # tells arduino to start receiving
@@ -156,4 +149,3 @@ while running:
 			value = event.value
 #		print(event)
 		setSignals(0) # tells arduino to stop receiving new commands
-'''
