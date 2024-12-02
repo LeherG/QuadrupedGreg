@@ -8,17 +8,12 @@ GPIO.setwarnings(False)
 # GPIO.output(pinNum, GPIO.HIGH)
 
 ## setting the pins
-'''
+
 pin1 = 0 #represents most significant
 pin2 = 5
 pin3 = 6
 pin4 = 13 #rightmost least significant
-'''
 
-pin1 = 17
-pin2 = 16
-pin3 = 15
-pin4 = 14
 
 signalPins = [26, 19]
 
