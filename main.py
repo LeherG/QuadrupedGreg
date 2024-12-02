@@ -94,11 +94,11 @@ axisNumbers = {
 		-1: "stand", # TLFB pushed forward - yes, counterintuitive
 		1: "sit" # TLLR pushed back
 	},
-	2: {
+	3: {
 		-1: "sit", # BRLR pushed left
 		1: "stand" # BRLR pushed right
 	},
-	3: {
+	4: {
 		-1: "walk", # BRFB pushed forward - yes, counterintuitive
 		1: "stand" # BRLR pushed back
 	}
