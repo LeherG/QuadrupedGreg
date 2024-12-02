@@ -88,7 +88,7 @@ axisLabels = {
 axisNumbers = {
 	0: {
 		-1: "sit", # TLLR pushed left
-		1: "stand" # TLLR pushed righ
+		1: "stand" # TLLR pushed right
 	},
 	1: {
 		-1: "stand", # TLFB pushed forward - yes, counterintuitive
@@ -103,6 +103,11 @@ axisNumbers = {
 		1: "stand" # BRLR pushed back
 	}
 }
+
+'''
+top left down is sit
+top left right is stand
+'''
 
 pygame.init()
 pygame.joystick.init()
@@ -127,9 +132,9 @@ while running:
 			print(f"Button {event.button} pressed")
 			button = event.button
 			if button == buttons["A"]:
-				setPins(commands["stand"])
-			elif button == buttons["B"]:
 				setPins(commands["sit"])
+			elif button == buttons["B"]:
+				setPins(commands["stand"])
 			elif button == buttons["X"]:
 				setPins(commands["dance"])
 			elif button == buttons["Y"]:
@@ -139,6 +144,13 @@ while running:
 			print(f"Axis {event.axis} moved to {event.value}")
 			axis = event.axis
 			value = event.value
+
+			if value > 0.9:
+				value = 1
+			elif value < -0.9:
+				value = -1
+			elif value < 0.2 and value > 0.2:
+				value = 0
 
 			if value == 1 or value == -1:
 				setPins(commands[axisNumbers[axis][value]])
