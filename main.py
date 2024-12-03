@@ -62,8 +62,8 @@ def setPins(commandNum):
 	for key, value in commands.items():
 		if value == commandNum:
 			cmd = key
-	print("cmd: ", cmd)
-	print("lastcommand: ", lastcommand)
+	print("cmd: " + cmd)
+	print("lastcommand: " + lastcommand)
 	if cmd == lastcommand:
 		print(f"last command was also {cmd}")
 
