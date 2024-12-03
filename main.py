@@ -160,7 +160,7 @@ while running:
 				value = 1
 			elif value < -0.9:
 				value = -1
-			elif value < 0.2 and value > 0.2:
+			elif value < 0.2 and value > -0.2:
 				value = 0
 
 			if value == 1 or value == -1:
