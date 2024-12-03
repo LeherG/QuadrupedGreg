@@ -53,32 +53,38 @@ for pin in commandPins:
 
 lastcommand = "default"
 def setPins(commandNum):
-	
-	binList = list(map(int, list(bin(commandNum)[2:])))
-
-	while len(binList) < 4:
-		binList.insert(0,0)
 
 	setSignals(1)
-	print("-------------------------------------")
 	cmd = "default"
+
+	print("-------------------------------------")
+
 	for key, value in commands.items():
 		if value == commandNum:
 			cmd = key
 	
 	if cmd == lastcommand:
 		print(f"last command was also {cmd}")
+
 	else:
+		binList = list(map(int, list(bin(commandNum)[2:])))
+
+		while len(binList) < 4:
+			binList.insert(0,0)
+
 		for i in range(len(commandPins)):
 			GPIO.output(commandPins[i], binList[i])
 		
 		print("command num: " + str(commandNum))
 		print("set pins to: " + str(binList))
 		print("command: " + cmd)
+
 	print("-------------------------------------")
 
 	time.sleep(1)
 	setSignals(0)
+
+	lastcommand = cmd
 
 
 ## mapping
