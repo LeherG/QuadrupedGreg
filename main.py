@@ -13,7 +13,7 @@ pin1 = 0 #represents most significant
 pin2 = 5
 pin3 = 6
 pin4 = 13 #rightmost least significant
-
+print("-------------------------------------")
 
 
 ## commands
@@ -55,21 +55,19 @@ lastcommand = "default"
 
 def setPins(commandNum):
 	global lastcommand
-	
+
 	setSignals(1)
 	cmd = "default"
-
-	print("-------------------------------------")
 
 	for key, value in commands.items():
 		if value == commandNum:
 			cmd = key
 
-	print("cmd: " + cmd)
-	print("lastcommand: " + lastcommand)
+	# print("cmd: " + cmd)
+	# print("lastcommand: " + lastcommand)
 
 	if cmd == lastcommand:
-		print(f"last command was also {cmd}")
+		print(f"	last command was also {cmd}")
 
 	else:
 		binList = list(map(int, list(bin(commandNum)[2:])))
