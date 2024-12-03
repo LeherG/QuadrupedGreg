@@ -135,7 +135,7 @@ while running:
 	for event in pygame.event.get():
 		setSignals(1) # tells arduino to start receiving
 		if event.type == pygame.JOYBUTTONDOWN: # buttons
-			print(f"Button {event.button} pressed")
+			# print(f"Button {event.button} pressed")
 			button = event.button
 			if button == buttons["A"]:
 				setPins(commands["sit"])
@@ -147,7 +147,7 @@ while running:
 				setPins(commands["dance2"])
 
 		if event.type == pygame.JOYAXISMOTION: # joystick
-			print(f"Axis {event.axis} moved to {event.value}")
+			# print(f"Axis {event.axis} moved to {event.value}")
 			axis = event.axis
 			value = event.value
 
