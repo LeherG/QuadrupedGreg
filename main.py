@@ -14,6 +14,8 @@ pin2 = 5
 pin3 = 6
 pin4 = 13 #rightmost least significant
 
+
+
 ## commands
 commands = {
 	"sit": 13,
@@ -76,8 +78,6 @@ def setPins(commandNum):
 	setSignals(0)
 
 
- 
-
 ## mapping
 buttons = {
 	"A":0,
@@ -129,7 +129,9 @@ if joystick_count > 0:
 	joystick=pygame.joystick.Joystick(0)
 
 running = True
-
+axisold = 0
+valueold = 0
+standorsit = "sit"
 
 while running:
 	for event in pygame.event.get():
@@ -139,8 +141,10 @@ while running:
 			button = event.button
 			if button == buttons["A"]:
 				setPins(commands["sit"])
+				standorsit = "sit"
 			elif button == buttons["B"]:
 				setPins(commands["stand"])
+				standorsit = "stand"
 			elif button == buttons["X"]:
 				setPins(commands["dance"])
 			elif button == buttons["Y"]:
@@ -151,6 +155,7 @@ while running:
 			axis = event.axis
 			value = event.value
 
+
 			if value > 0.9:
 				value = 1
 			elif value < -0.9:
@@ -160,6 +165,12 @@ while running:
 
 			if value == 1 or value == -1:
 				setPins(commands[axisNumbers[axis][value]])
+
+			if valueold != 0 and value == 0:
+				setPins(commands[standorsit])
+			
+			axisold = axis
+			valueold = value
 
 
 		if event.type == pygame.JOYHATMOTION: # the four button thing
