@@ -61,7 +61,8 @@ def setPins(commandNum):
 		GPIO.output(commandPins[i], binList[i])
 	
 	cmd = "default"
-	for key, value in commands:
+
+	for key, value in commands.items():
 		if value == commandNum:
 			cmd = key
 	
