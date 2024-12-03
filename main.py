@@ -84,7 +84,7 @@ def setPins(commandNum):
 
 	print("-------------------------------------")
 
-	time.sleep(1)
+	time.sleep(0.7)
 	setSignals(0)
 
 	lastcommand = cmd
