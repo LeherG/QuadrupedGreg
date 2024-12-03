@@ -166,7 +166,7 @@ while running:
 			if value == 1 or value == -1:
 				setPins(commands[axisNumbers[axis][value]])
 
-			if valueold != 0 and value == 0:
+			if axisold == axis and valueold != 0 and value == 0:
 				setPins(commands[standorsit])
 			
 			axisold = axis
