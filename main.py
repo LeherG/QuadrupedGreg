@@ -25,8 +25,8 @@ commands = {
 	"dance2":6,
 	"turn_l":7,
 	"turn_r":8,
-	"walking_turn_left":9,
-	"walking_turn_right":12,
+	"walk_turn_left":9,
+	"walk_turn_right":12,
 	"sidestep":10,
 	"walkq":11
 }
