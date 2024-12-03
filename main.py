@@ -43,11 +43,21 @@ def setPins(commandNum):
 	setSignals(1)
 	for i in range(len(commandPins)):
 		GPIO.output(commandPins[i], binList[i])
+	
+	cmd = "default"
+	for key, value in commands:
+		if value == commandNum:
+			cmd = key
+	
+	print("-------------------------------------")
 	print("command num: " + str(commandNum))
 	print("set pins to: " + str(binList))
-	setSignals(0)
+	print("command: " + cmd)
+	print("-------------------------------------")
 
 	time.sleep(1)
+	setSignals(0)
+
 
  ## commands
 commands = {
@@ -61,6 +71,7 @@ commands = {
 	"turn_l":7,
 	"turn_r":8,
 	"walking_turn_left":9,
+	"walking_turn_right":12,
 	"sidestep":10,
 	"walkq":11
 }
@@ -86,28 +97,24 @@ axisLabels = {
 }
 
 axisNumbers = {
-	0: {
-		-1: "sit", # TLLR pushed left
-		1: "stand" # TLLR pushed right
+	0: { # TLLR
+		-1: "walk_turn_left", # Top left joystick pushed left
+		1: "walk_turn_right" # Top left joystick pushed right
 	},
-	1: {
-		-1: "stand", # TLFB pushed forward - yes, counterintuitive
-		1: "sit" # TLLR pushed back
+	1: { # TLFB
+		-1: "walk", # Top left joystick pushed forward - yes, counterintuitive
+		1: "walk_back" # Top left joystick pushed back
 	},
-	3: {
-		-1: "sit", # BRLR pushed left
-		1: "stand" # BRLR pushed right
+	3: { # BRLR
+		-1: "turn_l", # Back right joystick pushed left
+		1: "turn_r" # Back right joystick pushed right
 	},
-	4: {
-		-1: "walk", # BRFB pushed forward - yes, counterintuitive
-		1: "stand" # BRLR pushed back
+	4: { # BRFB
+		-1: "walk", # Back right joystick pushed forward - yes, counterintuitive
+		1: "stand" # Back right joystick pushed back
 	}
 }
 
-'''
-top left down is sit
-top left right is stand
-'''
 
 pygame.init()
 pygame.joystick.init()
@@ -121,14 +128,11 @@ if joystick_count > 0:
 
 running = True
 
-# with open("test.txt", "w") as file:
-# 	file.write("Hello world!")
-
 
 while running:
 	for event in pygame.event.get():
 		setSignals(1) # tells arduino to start receiving
-		if event.type == pygame.JOYBUTTONDOWN:
+		if event.type == pygame.JOYBUTTONDOWN: # buttons
 			print(f"Button {event.button} pressed")
 			button = event.button
 			if button == buttons["A"]:
