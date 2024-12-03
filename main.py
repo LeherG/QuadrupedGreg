@@ -14,6 +14,22 @@ pin2 = 5
 pin3 = 6
 pin4 = 13 #rightmost least significant
 
+## commands
+commands = {
+	"sit": 13,
+	"stand": 1,
+	"walk": 2,
+	"walk_back":3,
+	"walk_fast":4,
+	"dance":5,
+	"dance2":6,
+	"turn_l":7,
+	"turn_r":8,
+	"walking_turn_left":9,
+	"walking_turn_right":12,
+	"sidestep":10,
+	"walkq":11
+}
 
 signalPins = [26, 19]
 
@@ -59,22 +75,7 @@ def setPins(commandNum):
 	setSignals(0)
 
 
- ## commands
-commands = {
-	"sit": 13,
-	"stand": 1,
-	"walk": 2,
-	"walk_back":3,
-	"walk_fast":4,
-	"dance":5,
-	"dance2":6,
-	"turn_l":7,
-	"turn_r":8,
-	"walking_turn_left":9,
-	"walking_turn_right":12,
-	"sidestep":10,
-	"walkq":11
-}
+ 
 
 ## mapping
 buttons = {
