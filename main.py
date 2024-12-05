@@ -66,21 +66,21 @@ def setPins(commandNum):
 	# print("cmd: " + cmd)
 	# print("lastcommand: " + lastcommand)
 
-	if cmd == lastcommand:
-		print(f"	last command was also {cmd}")
+	# if cmd == lastcommand:
+	# 	print(f"	last command was also {cmd}")
 
-	else:
-		binList = list(map(int, list(bin(commandNum)[2:])))
+	# else:
+	binList = list(map(int, list(bin(commandNum)[2:])))
 
-		while len(binList) < 4:
-			binList.insert(0,0)
+	while len(binList) < 4:
+		binList.insert(0,0)
 
-		for i in range(len(commandPins)):
-			GPIO.output(commandPins[i], binList[i])
-		
-		print("command num: " + str(commandNum))
-		print("set pins to: " + str(binList))
-		print("command: " + cmd)
+	for i in range(len(commandPins)):
+		GPIO.output(commandPins[i], binList[i])
+	
+	print("command num: " + str(commandNum))
+	print("set pins to: " + str(binList))
+	print("command: " + cmd)
 
 	print("-------------------------------------")
 
