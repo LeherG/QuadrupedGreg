@@ -167,17 +167,20 @@ while running:
 			axis = event.axis
 			value = event.value
 
-
-			if value > 0.9:
+			if value >= 0.9:
 				value = 1
-			elif value < -0.9:
+			elif value <= -0.9:
 				value = -1
-			elif value < 0.2 and value > -0.2:
+			elif value <= 0.2 and value >= -0.2:
 				value = 0
 
 			if value == 1 or value == -1:
 				setPins(commands[axisNumbers[axis][value]])
 
+				# adding the follinwg 2 lines to try to keep it moving until there's a new event
+				while pygame.event.peek():
+					setPins(commands[axisNumbers[axis][value]])
+	
 			elif value == 0:
 				setPins(commands[standorsit])
 			
@@ -188,5 +191,7 @@ while running:
 		if event.type == pygame.JOYHATMOTION: # the four button thing
 			print(f"Axis {event.value}")
 			value = event.value
+
+		
 #		print(event)
 		setSignals(0) # tells arduino to stop receiving new commands
