@@ -180,7 +180,7 @@ while running:
 				setPins(commands[axisNumbers[axis][value]])
 
 				# adding the follinwg 2 lines to try to keep it moving until there's a new
-				while pygame.event.peek():
+				while pygame.event.peek() == False:
 					setPins(commands[axisNumbers[axis][value]])
 	
 			elif value == 0:
