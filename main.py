@@ -177,14 +177,13 @@ while running:
 				value = 0
 
 			if value == 1 or value == -1:
-				setPins(commands[axisNumbers[axis][value]])
-
-				# adding the follinwg 2 lines to try to keep it moving until there's a new
-				while pygame.event.peek() == False:
-					setPins(commands[axisNumbers[axis][value]])
+				setPins(commands[axisNumbers[axis][value]])				
 	
 			elif value == 0:
 				setPins(commands[standorsit])
+
+			while pygame.event.peek() == False:
+				setPins(commands[axisNumbers[axis][value]])
 			
 			axisold = axis
 			valueold = value
