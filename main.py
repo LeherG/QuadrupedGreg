@@ -161,6 +161,8 @@ while running:
 				setPins(commands["dance"])
 			elif button == buttons["Y"]:
 				setPins(commands["dance2"])
+			elif button == buttons["LB"]:
+				setPins(commands["sidestep"])
 
 		if event.type == pygame.JOYAXISMOTION: # joystick
 			# print(f"Axis {event.axis} moved to {event.value}")
@@ -177,7 +179,7 @@ while running:
 			if value == 1 or value == -1:
 				setPins(commands[axisNumbers[axis][value]])
 
-				# adding the follinwg 2 lines to try to keep it moving until there's a new event
+				# adding the follinwg 2 lines to try to keep it moving until there's a new
 				while pygame.event.peek():
 					setPins(commands[axisNumbers[axis][value]])
 	
