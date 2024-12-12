@@ -169,11 +169,11 @@ while running:
 			axis = event.axis
 			value = event.value
 
-			if value >= 0.9:
+			if value >= 0.8:
 				value = 1
-			elif value <= -0.9:
+			elif value <= -0.8:
 				value = -1
-			elif value <= 0.2 and value >= -0.2:
+			elif value <= 0.3 and value >= -0.3:
 				value = 0
 
 			if value == 1 or value == -1:
@@ -182,8 +182,8 @@ while running:
 			elif value == 0:
 				setPins(commands[standorsit])
 
-			while pygame.event.peek() == False:
-				setPins(commands[axisNumbers[axis][value]])
+			# while pygame.event.peek() == False:
+			# 	setPins(commands[axisNumbers[axis][value]])
 			
 			axisold = axis
 			valueold = value
