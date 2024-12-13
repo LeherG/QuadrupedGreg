@@ -161,6 +161,8 @@ while running:
 				setPins(commands["dance"])
 			elif button == buttons["Y"]:
 				setPins(commands["dance2"])
+			elif button == buttons["LB"]:
+				setPins(commands["sidestep"])
 
 		if event.type == pygame.JOYAXISMOTION: # joystick
 			# print(f"Axis {event.axis} moved to {event.value}")
