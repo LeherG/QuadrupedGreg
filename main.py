@@ -84,7 +84,7 @@ def setPins(commandNum):
 
 	print("-------------------------------------")
 
-	time.sleep(0.6)
+	time.sleep(0.7)
 	setSignals(0)
 
 	lastcommand = cmd
@@ -161,29 +161,28 @@ while running:
 				setPins(commands["dance"])
 			elif button == buttons["Y"]:
 				setPins(commands["dance2"])
-			elif button == buttons["LB"]:
-				setPins(commands["sidestep"])
 
 		if event.type == pygame.JOYAXISMOTION: # joystick
 			# print(f"Axis {event.axis} moved to {event.value}")
 			axis = event.axis
 			value = event.value
 
-			if value >= 0.8:
+			if value >= 0.9:
 				value = 1
-			elif value <= -0.8:
+			elif value <= -0.9:
 				value = -1
-			elif value <= 0.3 and value >= -0.3:
+			elif value <= 0.2 and value >= -0.2:
 				value = 0
 
 			if value == 1 or value == -1:
-				setPins(commands[axisNumbers[axis][value]])				
+				setPins(commands[axisNumbers[axis][value]])
+
+				# adding the follinwg 2 lines to try to keep it moving until there's a new event
+				while pygame.event.peek():
+					setPins(commands[axisNumbers[axis][value]])
 	
 			elif value == 0:
 				setPins(commands[standorsit])
-
-			# while pygame.event.peek() == False:
-			# 	setPins(commands[axisNumbers[axis][value]])
 			
 			axisold = axis
 			valueold = value
